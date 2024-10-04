@@ -15,3 +15,8 @@ func main() {
 	i = 3
 	fmt.Print(f > float64(i), "\n")
 }
+
+//go mod init {dirname} moduler파일 생성
+//go fmt {filename}.go 파일의 문법체크 및 문법수정
+//go build {filename}.go exe파일 생성.
+// ./{filename}.exe 파일 실행.
