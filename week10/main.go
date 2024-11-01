@@ -22,16 +22,23 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	//fmt.Printf("%f, int = %d\n", math.Sqrt(53.0), int(math.Sqrt(53.0))) //실수를 정수로 캐스팅하면 소수점 날라감.
 
 	isPrime := true
-	for j := 2; j < n; j++ {
-		if n%j == 0 {
-			isPrime = false
-			break
+	if n < 2 {
+		isPrime = false
+	} else if n > 2 && n%2 == 0 {
+		isPrime = false
+	} else {
+		for j := 3; j*j <= n; j += 2 {
+			if n%j == 0 {
+				isPrime = false
+				break
+			}
 		}
 	}
 
-	if isPrime && !(n < 2) { //2보다 작은, 1, 0, -1 ... 은 소수가 아니다.
+	if isPrime { //2보다 작은, 1, 0, -1 ... 은 소수가 아니다.
 		fmt.Printf("%d는(은) 소수입니다.", n)
 	} else {
 		fmt.Printf("%d는(은) 소수가 아닙니다.", n)
