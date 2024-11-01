@@ -22,29 +22,28 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	//fmt.Printf("%f, int = %d\n", math.Sqrt(53.0), int(math.Sqrt(53.0))) //실수를 정수로 캐스팅하면 소수점 날라감.
 
-	isPrime := true
-	if n < 2 {
-		isPrime = false
-	} else if n > 2 && n%2 == 0 {
-		isPrime = false
-	} else {
-		for j := 3; j*j <= n; j += 2 {
-			if n%j == 0 {
-				isPrime = false
-				break
-			}
-		}
-	}
-
-	if isPrime { //2보다 작은, 1, 0, -1 ... 은 소수가 아니다.
+	if isPrime(n) { //2보다 작은, 1, 0, -1 ... 은 소수가 아니다.
 		fmt.Printf("%d는(은) 소수입니다.", n)
 	} else {
 		fmt.Printf("%d는(은) 소수가 아닙니다.", n)
 	}
 
-	// fmt.Printf("%d is %t", n, IsPrimeSqrt(n))
+}
+
+func isPrime(n int) bool {
+	if n < 2 { //1, 0, -1 ... 은 소수가 아님.
+		return false
+	} else if n > 2 && n%2 == 0 { //2보다 큰 수중에 짝수라면 소수가 아님.
+		return false
+	} else {
+		for j := 3; j*j <= n; j += 2 { //3부터 2씩 증가해서 홀수만 가지고 판단함.
+			if n%j == 0 {
+				return false
+			}
+		}
+	}
+	return true
 }
 
 func IsPrimeSqrt(n int) bool {
