@@ -23,23 +23,24 @@ func main() {
 		log.Fatal(err)
 	}
 
-	counts := 0
-
-	for j := 1; j <= n; j++ {
+	isPrime := true
+	for j := 2; j < n; j++ {
 		if n%j == 0 {
-			counts++
+			isPrime = false
+			break
 		}
 	}
-	if counts == 2 {
+
+	if isPrime && !(n < 2) { //2보다 작은, 1, 0, -1 ... 은 소수가 아니다.
 		fmt.Printf("%d는(은) 소수입니다.", n)
 	} else {
 		fmt.Printf("%d는(은) 소수가 아닙니다.", n)
 	}
 
-	// fmt.Printf("%d is %t", n, IsPrime(n))
+	// fmt.Printf("%d is %t", n, IsPrimeSqrt(n))
 }
 
-func IsPrime(n int) bool {
+func IsPrimeSqrt(n int) bool {
 	if n == 1 {
 		return false
 	}
