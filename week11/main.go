@@ -12,29 +12,17 @@ import (
 )
 
 func main() {
-	r := bufio.NewReader(os.Stdin)
 
 	// 넘버1
 	fmt.Print("시작 정수 입력 : ")
-	a, err := r.ReadString('\n')
-
-	if err != nil {
-		log.Fatal(err)
-	}
-	a = strings.TrimSpace(a)
-	n1, err := strconv.Atoi(a)
+	n1, err := getInteger()
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	// 넘버 2
 	fmt.Print("끝 정수 입력 : ")
-	b, err := r.ReadString('\n')
-	if err != nil {
-		log.Fatal(err)
-	}
-	b = strings.TrimSpace(b)
-	n2, err := strconv.Atoi(b)
+	n2, err := getInteger()
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -45,6 +33,20 @@ func main() {
 		}
 	}
 
+}
+
+func getInteger() (int, error) {
+	r := bufio.NewReader(os.Stdin)
+	a, err := r.ReadString('\n')
+	if err != nil {
+		return 0, err
+	}
+	a = strings.TrimSpace(a)
+	n, err := strconv.Atoi(a)
+	if err != nil {
+		return 0, err
+	}
+	return n, nil
 }
 
 func isPrime(n int) bool {
