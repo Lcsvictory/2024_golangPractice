@@ -30,7 +30,11 @@ func main() {
 	// fmt.Println(dates[0], dates[1], dates[2])
 	// fmt.Printf("%#v\n", dates1) //literal 형태 그대로 출력.
 
-	for i := 0; i < len(dates); i++ {
-		fmt.Printf("%d, %v\n", i, dates[i])
+	// for i := 0; i < len(dates); i++ {
+	// 	fmt.Printf("%d, %v\n", i, dates[i])
+	// }
+
+	for i, v := range dates { //range 사용
+		fmt.Printf("%d, %v\n", i, v)
 	}
 }
