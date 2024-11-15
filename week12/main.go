@@ -2,19 +2,19 @@ package main
 
 import (
 	"fmt"
-
-	"github.com/headfirstgo/keyboard"
 )
 
 func main() {
-	var gpa [3]float64
-	for i := 0; i < len(gpa); i++ {
-		fmt.Print("Input float number(your grade):")
-		gpa[i], _ = keyboard.GetFloat() // go get github.com/headfirstgo/keyboard
-	}
+	// var notes [5]string = [5]string{"do", "re"} //정석버전
+	notes := [5]string{ //Array literal
+		"do",
+		"re"}
 
-	for i, v := range gpa {
-		fmt.Printf("%d번학생의 학점 : %f\n", i, v)
+	names := []string{ //Slice literal
+		"kim",
+		"park",
 	}
+	fmt.Println(notes) //[do re   ]
+	fmt.Println(names) //[kim park]
 
 }
