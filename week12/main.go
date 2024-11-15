@@ -34,7 +34,7 @@ func main() {
 	// 	fmt.Printf("%d, %v\n", i, dates[i])
 	// }
 
-	for i, v := range dates { //range 사용
-		fmt.Printf("%d, %v\n", i, v)
+	for _, date := range dates { //range 사용
+		fmt.Printf("%v\n", date)
 	}
 }
