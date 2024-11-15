@@ -2,39 +2,19 @@ package main
 
 import (
 	"fmt"
-	"time"
+
+	"github.com/headfirstgo/keyboard"
 )
 
 func main() {
-	// var dates [2]time.Time
-	// dates[1] = time.Unix(14420000, 0)
-	// fmt.Println(dates[1])
-
-	// var dates [3]time.Time = [3]time.Time{
-	// 	time.Unix(0, 0),
-	// 	time.Unix(1, 0),
-	// 	time.Unix(1244444401, 0),
-	// }
-
-	dates := [3]time.Time{
-		time.Unix(0, 0),
-		time.Unix(1, 0),
-		time.Unix(1244444401, 0), //줄바꿈이 있다면 마지막 요소에 ,는 필수
+	var gpa [3]float64
+	for i, _ := range gpa {
+		fmt.Print("Input float number(your grade):")
+		gpa[i], _ = keyboard.GetFloat() // go get github.com/headfirstgo/keyboard
 	}
 
-	// dates1 := [3]time.Time{
-	// 	time.Unix(0, 0),
-	// 	time.Unix(1, 0),
-	// 	time.Unix(1947920001, 0)} //줄바꿈 없으면 없어도 됨.
-
-	// fmt.Println(dates[0], dates[1], dates[2])
-	// fmt.Printf("%#v\n", dates1) //literal 형태 그대로 출력.
-
-	// for i := 0; i < len(dates); i++ {
-	// 	fmt.Printf("%d, %v\n", i, dates[i])
-	// }
-
-	for _, date := range dates { //range 사용
-		fmt.Printf("%v\n", date)
+	for i, v := range gpa {
+		fmt.Printf("%d번학생의 학점 : %f\n", i, v)
 	}
+
 }
