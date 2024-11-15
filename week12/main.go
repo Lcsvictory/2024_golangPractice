@@ -8,7 +8,7 @@ import (
 
 func main() {
 	var gpa [3]float64
-	for i, _ := range gpa {
+	for i := 0; i < len(gpa); i++ {
 		fmt.Print("Input float number(your grade):")
 		gpa[i], _ = keyboard.GetFloat() // go get github.com/headfirstgo/keyboard
 	}
