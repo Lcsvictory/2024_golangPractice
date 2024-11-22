@@ -13,6 +13,14 @@ func main() {
 	gpaSlice := gpas[1:4]                        // slice := slicing array
 	// gpaSlice[1] = 2.71
 	gpas[2] = 2.71
+	gpaSlice = append(gpaSlice, 4.3)
 	fmt.Println(gpas, gpaSlice, reflect.TypeOf(gpaSlice))
+
+	var emptySlice []int
+	fmt.Printf("intSlice: %#v\n", emptySlice)
+	emptySlice = make([]int, 10)
+	//emptySlice = append(emptySlice, 27, 90, 101)
+	fmt.Printf("intSlice: %#v\n", emptySlice)
+	// sclice zero value == nil
 
 }
