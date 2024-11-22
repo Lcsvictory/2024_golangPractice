@@ -12,8 +12,9 @@ func main() {
 		"re"}
 
 	//방법1
-	var vars []string
-	vars = make([]string, 5)
+	//var vars []string
+	//vars = make([]string, 5)
+	var vars []string = make([]string, 5)
 
 	//방법2
 	primes := make([]int, 5)
