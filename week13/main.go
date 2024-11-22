@@ -2,27 +2,27 @@ package main
 
 import (
 	"fmt"
+	"os"
 	"reflect"
 )
 
+// func test(names string) { //단일매개변수 arguments
+// fmt.Println(names)
+// }
+
+func test(names ...string) { //가변매개변수 variable arguments
+	fmt.Println(names, reflect.TypeOf(names))
+}
+
 func main() {
-	//슬라이스는 복사가 아닌 참조.
+	singer := os.Args[1:] //$0 실행파일경로 $1~... 공백으로 분리된 매개변수들
+	// 실행시킬때 커맨드 창에서 입력받은 매개변수들.
+	fmt.Println(singer)
+	fmt.Printf("%T\n", singer[1]) // TypeOf()
 
-	//Create a slice by slicing an existing array
-	gpas := [5]float64{3.5, 4.1, 4.5, 3.9, 4.23} // array := array literal
-	gpaSlice := gpas[1:4]                        // slice := slicing array
-	// gpaSlice[1] = 2.71
-	gpas[2] = 2.71
-	gpaSlice = append(gpaSlice, 4.3)
-	fmt.Println(gpas, gpaSlice, reflect.TypeOf(gpaSlice))
+	singer = append(singer, "IU", "BTS")
+	fmt.Println(singer, len(singer))
 
-	var emptySlice []int
-	// emptySlice = make([]int, 5)
-
-	if len(emptySlice) == 0 { // 슬라이스의 값이 없을때.
-		fmt.Printf("emptySlice : %#v\n", emptySlice)
-		emptySlice = append(emptySlice, 77)
-	}
-	fmt.Printf("emptySlice : %#v\n", emptySlice)
-
+	test("you", "are")
+	test()
 }
