@@ -17,10 +17,12 @@ func main() {
 	fmt.Println(gpas, gpaSlice, reflect.TypeOf(gpaSlice))
 
 	var emptySlice []int
-	fmt.Printf("intSlice: %#v\n", emptySlice)
-	emptySlice = make([]int, 10)
-	//emptySlice = append(emptySlice, 27, 90, 101)
-	fmt.Printf("intSlice: %#v\n", emptySlice)
-	// sclice zero value == nil
+	// emptySlice = make([]int, 5)
+
+	if len(emptySlice) == 0 { // 슬라이스의 값이 없을때.
+		fmt.Printf("emptySlice : %#v\n", emptySlice)
+		emptySlice = append(emptySlice, 77)
+	}
+	fmt.Printf("emptySlice : %#v\n", emptySlice)
 
 }
