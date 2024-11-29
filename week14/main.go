@@ -2,25 +2,22 @@ package main
 
 import "fmt"
 
+type student struct {
+	id   int
+	name string
+	gpa  float32
+	age  int
+}
+
 func main() {
-	var student1 struct {
-		id   int
-		name string
-		gpa  float32
-		age  int
-	}
+	var student1 student
 	student1.id = 20241100
 	student1.name = "Kim inha"
 	student1.gpa = 4.5
 	student1.age = 20
 	fmt.Printf("%#v\n", student1.id)
 
-	var student2 struct {
-		id   int
-		name string
-		gpa  float32
-		age  int
-	}
+	var student2 student
 	student2.id = 20242200
 	student2.name = "Kim inha"
 	student2.gpa = 4.5
