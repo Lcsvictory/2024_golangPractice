@@ -16,4 +16,5 @@ func main() {
 
 	myMaps["kim"] = 10
 	fmt.Println(myMaps, myMap)
+
 }
