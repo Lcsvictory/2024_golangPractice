@@ -1,43 +1,25 @@
 package main
 
-import (
-	"fmt"
-	"log"
-
-	"github.com/headfirstgo/datafile"
-)
+import "fmt"
 
 func main() {
-	lines, err := datafile.GetStrings("votes.txt")
-	if err != nil {
-		log.Fatal(err)
-	}
+	ages := make(map[string]int) //key=string, value=int
 
-	var names []string
-	var counts []int
-	for _, line := range lines {
-		flag := false
-		for i, name := range names {
-			if name == line {
-				counts[i]++
-				flag = true
-			}
+	var name string
+	var age int
+
+	for {
+		fmt.Print("your name? (exit to 'q') : ")
+		fmt.Scanln(&name)
+		if name == "q" {
+			break
 		}
-		if !flag {
-			names = append(names, line)
-			counts = append(counts, 1)
-		}
-	}
+		fmt.Print("your age? : ")
+		fmt.Scanln(&age)
 
-	for i, name := range names {
-		fmt.Printf("Votes for %s: %d\n", name, counts[i])
+		ages[name] = age
 	}
-
-	// counts := make(map[string]int)
-	// for _, line := range lines {
-	// 	counts[line]++
-	// }
-	// for name, count := range counts {
-	// 	fmt.Printf("Votes for %s: %d\n", name, count)
-	// }
+	for name, age := range ages {
+		fmt.Printf("%s is %d years old.\n", name, age)
+	}
 }
