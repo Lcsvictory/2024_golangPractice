@@ -83,6 +83,15 @@ func main() {
 	fmt.Printf("%#v, %v %T\n", sliceLiteral3, sliceLiteral3, sliceLiteral3)
 	//[]string{""}, [] []string
 
+	sliceAppend := make([]int, 2)
+	sliceAppend = append(sliceAppend, 1, 2, 3, 4)
+	fmt.Printf("%#v, %v %T\n", sliceAppend, sliceAppend, sliceAppend)
+	//[]int{0, 0, 1, 2, 3, 4}, [0 0 1 2 3 4] []int
+
+	arrayAppend := [3]int{1, 2, 3}
+	arrayAppend = append(arrayAppend, 1) //array에는 append불가능
+	//first argument to append must be a slice; have arrayAppend (variable of type [3]int)
+
 	oneToFive := [2]int{1, 2}
 	for i, v := range oneToFive {
 		fmt.Printf("index : %d, value : %d\n", i, v)
